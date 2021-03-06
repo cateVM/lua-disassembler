@@ -54,7 +54,7 @@ extern "C" {
 #define _strdup strdup
 typedef unsigned char BYTE;
 #endif // __GNUC__
-
+#include <Windows.h>
 #include <stdio.h>
 #include <iostream>
 #include <fstream>
