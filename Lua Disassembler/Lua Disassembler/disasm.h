@@ -456,8 +456,14 @@ public:
 					if (p->k[INDEXK(GETARG_C(i))].tt == LUA_TSTRING) {
 						val = _strdup(getstr((TString*)p->k[INDEXK(GETARG_C(i))].value.gc));
 					}
+					else if (p->k[INDEXK(GETARG_C(i))].tt == LUA_TBOOLEAN) {
+						val = p->k[INDEXK(GETARG_C(i))].value.b ? _strdup("true") : _strdup("false");
+					}
+					else if (p->k[INDEXK(GETARG_C(i))].tt == LUA_TNUMBER) {
+						val = _strdup(std::to_string(p->k[INDEXK(GETARG_C(i))].value.n).c_str());
+					}
 					else {
-						val = _strdup("unable to get const");
+						val = _strdup("ERR");
 					}
 
 				}
@@ -804,8 +810,14 @@ public:
 					if (p->k[INDEXK(GETARG_C(i))].tt == LUA_TSTRING) {
 						val = _strdup(getstr((TString*)p->k[INDEXK(GETARG_C(i))].value.gc));
 					}
+					else if (p->k[INDEXK(GETARG_C(i))].tt == LUA_TBOOLEAN) {
+						val = p->k[INDEXK(GETARG_C(i))].value.b ? _strdup("true") : _strdup("false");
+					}
+					else if (p->k[INDEXK(GETARG_C(i))].tt == LUA_TNUMBER) {
+						val = _strdup(std::to_string(p->k[INDEXK(GETARG_C(i))].value.n).c_str());
+					}
 					else {
-						val = _strdup("nig");
+						val = _strdup("ERR");
 					}
 
 				}
